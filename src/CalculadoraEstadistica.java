@@ -37,8 +37,12 @@ public class CalculadoraEstadistica {
                     System.out.print("Introduce el divisor: ");
                     double b = scanner.nextDouble();
 
-                    double resultado = dividir(a, b);
-                    System.out.println("Resultado: " + resultado);
+                    if (b == 0) {
+                        System.out.println("Error: No se puede dividir por cero.");
+                    } else {
+                        double resultado = dividir(a, b);
+                        System.out.println("Resultado: " + resultado);
+                    }
                     break;
 
                 case 3:
@@ -64,18 +68,18 @@ public class CalculadoraEstadistica {
         scanner.close();
     }
 
-    // ERROR LÓGICO 1: La precedencia de operadores arruina la suma previa a la división
+    // CORRECCIÓN 1: Se agrupan los sumandos entre paréntesis (a + b + c) antes de dividir entre 3.0
     public static double calcularPromedio(double a, double b, double c) {
-        return a + b + c / 3;
+        return (a + b + c) / 3.0;
     }
 
-    // ERROR LÓGICO 2: No valida si el divisor es 0
+    // CORRECCIÓN 2: Realiza la división directamente (la validación de divisor != 0 se hace en la interfaz/main)
     public static double dividir(double a, double b) {
         return a / b;
     }
 
-    // ERROR LÓGICO 3: Operador incorrecto para evaluar paridad
+    // CORRECCIÓN 3: Se utiliza el operador módulo (%) para verificar si el resto de dividir por 2 es 0
     public static boolean esPar(int numero) {
-        return numero / 2 == 0;
+        return numero % 2 == 0;
     }
 }
