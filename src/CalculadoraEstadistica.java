@@ -1,7 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * Aplicación de consola que proporciona una calculadora con menú interactivo
+ * para realizar operaciones estadísticas y matemáticas básicas.
+ *
+ * @author Sebastián
+ * @version 1.1
+ */
 public class CalculadoraEstadistica {
 
+    /**
+     * Punto de entrada principal de la aplicación.
+     * Muestra un menú por consola que permite interactuar con las funciones estadísticas.
+     *
+     * @param args Argumentos de línea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean continuar = true;
@@ -68,17 +81,36 @@ public class CalculadoraEstadistica {
         scanner.close();
     }
 
-    // CORRECCIÓN 1: Se agrupan los sumandos entre paréntesis (a + b + c) antes de dividir entre 3.0
+    /**
+     * Calcula la media aritmética de tres números reales.
+     * Agrupa los sumandos para garantizar la precedencia correcta antes de la división.
+     *
+     * @param a Primer valor.
+     * @param b Segundo valor.
+     * @param c Tercer valor.
+     * @return El promedio aritmético como double.
+     */
     public static double calcularPromedio(double a, double b, double c) {
         return (a + b + c) / 3.0;
     }
 
-    // CORRECCIÓN 2: Realiza la división directamente (la validación de divisor != 0 se hace en la interfaz/main)
+    /**
+     * Realiza la división aritmética de dos números.
+     *
+     * @param a Dividendo.
+     * @param b Divisor (se valida que sea distinto de cero en la interfaz).
+     * @return El cociente de la división.
+     */
     public static double dividir(double a, double b) {
         return a / b;
     }
 
-    // CORRECCIÓN 3: Se utiliza el operador módulo (%) para verificar si el resto de dividir por 2 es 0
+    /**
+     * Evalúa si un número entero es par comprobando el resto de la división por dos.
+     *
+     * @param numero Número entero a verificar.
+     * @return {@code true} si es par, {@code false} si es impar.
+     */
     public static boolean esPar(int numero) {
         return numero % 2 == 0;
     }
